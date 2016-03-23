@@ -135,12 +135,13 @@
 	var options = [['default', 'Side Names'], ['bar', 'Side Bars'], ['top', 'Horizontal Names']];
 	
 	m.selectAll('a').data(options).enter().append('a').attr('href', function (d) {
-	  return '/#' + d[0];
+	  return '#' + d[0];
 	}).text(function (d) {
 	  return d[1];
 	}).on('click', menuClick).classed('btn btn-default', true);
 	
 	function menuClick(d) {
+	  window.location.hash = '#' + d[0];
 	  window.location.reload();
 	}
 	
